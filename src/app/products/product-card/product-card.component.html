@@ -1,0 +1,7 @@
+<a [routerLink]="['/products', product.productId]"  class="card product">
+    <img src="{{ product.imageUrl }}" />
+    <p class="title">{{ product.detail?.title }}</p>
+    <p class="small-info">{{ product.detail?.length }}</p>
+    <p class="small-info">{{ authorString }}</p>
+    <p class="description">{{ product.detail?.oneLiner }}</p>
+</a>

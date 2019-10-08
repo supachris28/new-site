@@ -8,7 +8,9 @@ import { map, switchMap } from 'rxjs/operators';
 })
 export class ProductsService {
   private static BASE_STATIC_URL = 'https://static.packt-cdn.com/products';
-  private productsCache = {};
+  private static BASE_STATIC_AUTHORS_URL = 'https://static.packt-cdn.com/authors';
+  private static  productsCache = {};
+  private static  authorssCache = {};
 
   constructor(
     private http: HttpClient,
@@ -19,11 +21,19 @@ export class ProductsService {
   }
 
   private getCachedProduct(productId: string) {
-    return this.productsCache[productId];
+    return ProductsService.productsCache[productId];
   }
 
   private setCachedProduct(productId: string, product: any) {
-    this.productsCache[productId] = product;
+    ProductsService.productsCache[productId] = product;
+  }
+
+  private getCachedAuthor(authorId: string) {
+    return ProductsService.authorssCache[authorId];
+  }
+
+  private setCachedAuthor(authorId: string, author: any) {
+    ProductsService.authorssCache[authorId] = author;
   }
 
   public getProductSummary(productId: string): Observable<any> {
@@ -42,7 +52,7 @@ export class ProductsService {
     return getSummary;
   }
 
-  public getImageUrl(productId: string): Observable<any> {
+  public getImageUrl(productId: string): Observable<string> {
     let cachedProduct = this.getCachedProduct(productId);
     if(cachedProduct) {
       console.log('using cached summary for cover image');
@@ -56,5 +66,27 @@ export class ProductsService {
         this.setCachedProduct(productId, data);
         return data.coverImage;
       }));
+  }
+
+  public getIconUrl(productId: string): string {
+    return `${ProductsService.BASE_STATIC_URL}/${productId}/cover/smaller`;
+  }
+
+  public getAuthors(authors: string[]): Observable<string>[] {
+    return authors.map((authorId:string) => {
+      let cachedAuthor = this.getCachedAuthor(authorId);
+      if(cachedAuthor) {
+        console.log('using cached author');
+        return of(cachedAuthor);
+      }
+
+      const getAuthor = this.http.get(`${ProductsService.BASE_STATIC_AUTHORS_URL}/${authorId}`);
+      return getAuthor
+        .pipe(map((data: any) => {
+          console.log('getting author')
+          this.setCachedAuthor(authorId, data.author);
+          return data.author;
+        }));
+    })
   }
 }

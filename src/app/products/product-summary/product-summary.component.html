@@ -1,5 +1,19 @@
-<img src="{{ imageUrl }}" class="cover" />
-<h1>{{ data.title }}</h1>
 <div>
-    <pre>{{ detail }}</pre>
+    <img src="{{ imageUrl }}" class="cover" />
+    <h1>{{ data.title }}</h1>
+    <p>{{ data.length }}</p>
+    <p>{{ data.oneLiner }}</p>
+    <p>{{ data.publicationDate | date:'MMMM yyyy' }}</p>
+    <p>{{ authorString }}</p>
+    <p>ISBN: {{ data.isbn13 }}</p>
+    <div style="clear: both"></div>
 </div>
+<div>
+    <h2>About</h2>
+    <p [innerHTML]="data.about"></p>
+    <h2>What you will learn</h2>
+    <p [innerHTML]="data.learn"></p>
+    <h2>Features</h2>
+    <p [innerHTML]="data.features"></p>
+</div>
+<pre>{{ detail }}</pre>

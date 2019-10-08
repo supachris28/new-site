@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { ProductsService } from '../products.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-product-summary',
@@ -13,6 +14,8 @@ export class ProductSummaryComponent implements OnInit {
   detail: string;
   imageUrl: string;
   data: any = {};
+  authors: string[];
+  authorString: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,11 +30,17 @@ export class ProductSummaryComponent implements OnInit {
       .subscribe(data => {
         this.data = data;
         this.detail = JSON.stringify(data, undefined, 2);
-      });
-      this.productService.getImageUrl(this.productId)
-          .subscribe(imageUrl => {
-            this.imageUrl = imageUrl;
-          });
-  }
+        forkJoin(this.productService.getAuthors(this.data.authors))
+          .subscribe((authors) => {
+            this.authors = authors;
+            this.authorString = this.authors.join(', ');
+          })
+     });
+      // this.productService.getImageUrl(this.productId)
+      //     .subscribe(imageUrl => {
+      //       this.imageUrl = imageUrl;
+      //     });
+      this.imageUrl = this.productService.getIconUrl(this.productId);
+    }
 
 }

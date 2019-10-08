@@ -1,25 +1,3 @@
-.card.product {
-    height: 150px;
-    padding: 10px;
-    display: block;
-
-    a {
-        color: inherit;
-    }
-
-    p.title {
-        line-height: 1.2em;
-        font-weight: bold;
-    }
-
-    p.description {
-        font-size: smaller;
-        line-height: 1em;
-    }
-
-    img {
-        max-width: 60px;
-        margin-right: 10px;
-        float: left;
-    }
+li {
+    list-style: none;
 }
