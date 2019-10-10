@@ -10,7 +10,7 @@ export class ProductsService {
   private static BASE_STATIC_URL = 'https://static.packt-cdn.com/products';
   private static BASE_STATIC_AUTHORS_URL = 'https://static.packt-cdn.com/authors';
   private static  productsCache = {};
-  private static  authorssCache = {};
+  private static  authorsCache = {};
 
   constructor(
     private http: HttpClient,
@@ -29,11 +29,11 @@ export class ProductsService {
   }
 
   private getCachedAuthor(authorId: string) {
-    return ProductsService.authorssCache[authorId];
+    return ProductsService.authorsCache[authorId];
   }
 
   private setCachedAuthor(authorId: string, author: any) {
-    ProductsService.authorssCache[authorId] = author;
+    ProductsService.authorsCache[authorId] = author;
   }
 
   public getProductSummary(productId: string): Observable<any> {
