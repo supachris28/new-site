@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
+import { ViewerModule } from './viewer/viewer.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { ProductsModule } from './products/products.module';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     ProductsModule,
+    ViewerModule,
     AppRoutingModule,
   ],
   providers: [],
