@@ -9,8 +9,8 @@ import { map, switchMap } from 'rxjs/operators';
 export class ProductsService {
   private static BASE_STATIC_URL = 'https://static.packt-cdn.com/products';
   private static BASE_STATIC_AUTHORS_URL = 'https://static.packt-cdn.com/authors';
-  private static  productsCache = {};
-  private static  authorsCache = {};
+  private static productsCache = {};
+  private static authorsCache = {};
 
   constructor(
     private http: HttpClient,
