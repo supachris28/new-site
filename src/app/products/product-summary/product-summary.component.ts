@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { ProductsService } from '../products.service';
+import { ProductsService } from '../../shared/services/products.service';
 import { forkJoin } from 'rxjs';
 
 @Component({
