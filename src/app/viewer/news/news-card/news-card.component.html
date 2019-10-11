@@ -1,5 +1,5 @@
 <a class="card" [routerLink]="['/viewer/news', newsItem.id, newsItem.slug]">
     <img />
-    <p>{{ title }}</p>
+    <p [innerHTML]="title"></p>
     <p class="smaller">{{ categories }}</p>
 </a>
