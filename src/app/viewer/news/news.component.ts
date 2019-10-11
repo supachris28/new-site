@@ -25,13 +25,11 @@ export class NewsComponent implements OnInit {
     this.newsService.getNewsItem(this.id)
     .pipe(mergeMap(data => {
       this.newsItem = data;
-      console.log(data);
       return this.newsService.getNewsMedia(this.newsItem.featured_media);
     }))
     .subscribe(media => {
       this.mediaPath = media.link;
       this.mediaCaption = media.caption.rendered;
-      console.log(media);
     });
   }
 

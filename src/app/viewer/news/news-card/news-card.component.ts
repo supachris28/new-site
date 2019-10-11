@@ -10,7 +10,6 @@ export class NewsCardComponent implements OnInit {
   private detail: string;
   private title: string;
   private mediaPath: string;
-  private mediaCaption: string;
   @Input() private newsItem: any;
 
   constructor(
@@ -19,11 +18,9 @@ export class NewsCardComponent implements OnInit {
 
   ngOnInit() {
     this.title = this.newsItem.title.rendered;
-    console.log(this.newsItem)
-    this.newsService.getNewsMedia(this.newsItem.featured_media)
-      .subscribe(media => {
-        this.mediaPath = media.link;
-        this.mediaCaption = media.caption.rendered;
+    this.newsService.getNewsMediaThumbnailPath(this.newsItem.featured_media)
+      .subscribe((media: string) => {
+        this.mediaPath = media;
       });
   }
 
