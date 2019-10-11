@@ -9,7 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   { path: 'viewer', component: CoreComponent, children: [
     { path: '', component: DashboardComponent },
-    { path: 'news', component: NewsComponent },
+    { path: 'news/:id/:slug', component: NewsComponent },
     { path: 'course', component: CourseComponent },
   ] }
 ];

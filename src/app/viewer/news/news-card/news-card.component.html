@@ -1,5 +1,8 @@
 <a class="card" [routerLink]="['/viewer/news', newsItem.id, newsItem.slug]">
-    <img />
-    <p [innerHTML]="title"></p>
-    <p class="smaller">{{ categories }}</p>
+    <img src="{{ mediaPath }}" alt="{{ mediaCaption }}" />
+    <div>
+        <p [innerHTML]="title"></p>
+        <p class="smaller">{{ categories }}</p>
+        <p class="smaller right">{{ newsItem.date | date: 'dd MMM yyyy' }}</p>
+    </div>
 </a>
