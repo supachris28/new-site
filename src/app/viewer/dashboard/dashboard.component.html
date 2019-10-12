@@ -1,12 +1,16 @@
-<h1>Your reading options</h1>
-<div class="main">
-    <div class="column card-container">
-        <h2>Latest News</h2>
-        <li *ngFor="let newsItem of news">
-            <news-card [newsItem]="newsItem"></news-card>
-        </li>
+<div class="dashboard">
+  <article>
+    <h1>Your reading options</h1>
+    <div class="main">
+        <div class="column card-container">
+            <h2>Latest News</h2>
+            <li *ngFor="let newsItem of news">
+                <news-card [newsItem]="newsItem"></news-card>
+            </li>
+        </div>
+        <div class="column">
+            <h2>Your recent courses</h2>
+        </div>
     </div>
-    <div class="column">
-        <h2>Your recent courses</h2>
-    </div>
+  </article>
 </div>
