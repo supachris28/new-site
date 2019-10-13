@@ -28,7 +28,7 @@ export class NewsComponent implements OnInit {
       return this.newsService.getNewsMedia(this.newsItem.featured_media);
     }))
     .subscribe(media => {
-      this.mediaPath = media.link;
+      this.mediaPath = media.media_details.sizes.large.source_url;
       this.mediaCaption = media.caption.rendered;
     });
   }

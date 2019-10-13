@@ -1,15 +1,18 @@
 .viewer-container {
   margin: 0;
-  background: lightgray;
 }
 
 article {
   display: block;
   margin: 32px auto;
-  padding: 16px;
-  max-width: 960px;
+  padding: 2em 6em;
+  max-width: 840px;
   align-items: center;
   background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 0 5px -1px rgba(50,50,50,.75);
   min-height: 100%;
+
+  p {
+    margin-bottom: 0.5em;
+  }
 }
