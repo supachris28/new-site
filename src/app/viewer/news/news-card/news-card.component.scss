@@ -1,0 +1,18 @@
+.card {
+    width: 400px;
+
+    img {
+        max-width: 80px;
+        margin-right: 10px;
+    }
+
+    .smaller {
+        font-size: smaller;
+    }
+
+    .right {
+        text-align: right;
+    }
+
+    color: inherit;
+}

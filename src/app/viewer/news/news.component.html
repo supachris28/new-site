@@ -1,1 +1,5 @@
-<p>news works!</p>
+<article>
+  <h1 [innerHTML]="newsItem?.title?.rendered"></h1>
+  <img src="{{ mediaPath }}" alt="{{ mediaCaption }}" />
+  <div [innerHTML]="newsItem?.content?.rendered"></div>
+</article>
