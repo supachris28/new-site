@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { CoreComponent } from './core/core.component';
 import { NewsComponent } from './news/news.component';
 import { CourseComponent } from './course/course.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
   { path: 'viewer', component: CoreComponent, children: [
-    { path: 'news', component: NewsComponent },
+    { path: '', component: DashboardComponent },
+    { path: 'news/:id/:slug', component: NewsComponent },
     { path: 'course', component: CourseComponent },
   ] }
 ];
