@@ -10,9 +10,9 @@ import { mergeMap } from 'rxjs/operators';
 })
 export class NewsComponent implements OnInit {
   private id: number;
-  private mediaPath: string;
-  private mediaCaption: string;
-  private newsItem: any;
+  mediaPath: string;
+  mediaCaption: string;
+  newsItem: any;
 
   constructor(
     private route: ActivatedRoute,
