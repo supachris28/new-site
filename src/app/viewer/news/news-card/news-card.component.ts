@@ -7,10 +7,11 @@ import { NewsService } from 'src/app/shared/services/news.service';
   styleUrls: ['./news-card.component.scss']
 })
 export class NewsCardComponent implements OnInit {
-  private detail: string;
-  private title: string;
-  private mediaPath: string;
-  @Input() private newsItem: any;
+  detail: string;
+  title: string;
+  mediaPath: string;
+  categories: string;
+  @Input() newsItem: any;
 
   constructor(
     private newsService: NewsService,
